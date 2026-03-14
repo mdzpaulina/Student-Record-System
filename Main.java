@@ -42,6 +42,9 @@ public class Main {
 
     // MENU
 
+    /**
+     * Displays the main menu with available options.
+     */
     static void printMenu() {
         System.out.println("STUDENT SYSTEM");
         System.out.println("1. Register students            ");
@@ -53,6 +56,9 @@ public class Main {
 
     // REGISTER STUDENT
 
+    /**
+     * Registers a new student with name, age, grade, and type (Regular or Scholarship).
+     */
     static void registerStudent(Scanner scanner) {
         System.out.println("\n--- Register Student ---");
 
@@ -120,6 +126,9 @@ public class Main {
 
     // VIEW GRADES
 
+    /**
+     * Displays all registered students sorted by grade in descending order.
+     */
     static void viewGrades() {
         if (students.isEmpty()) {
             System.out.println("\nNo students registered yet.");
@@ -147,6 +156,9 @@ public class Main {
 
     // VIEW STATISTICS
 
+    /**
+     * Displays class statistics including average, highest/lowest grades, and pass/fail counts.
+     */
     static void viewStatistics() {
         if (gradeList.isEmpty()) {
             System.out.println("\nNo students registered yet.");
@@ -166,6 +178,9 @@ public class Main {
 
     // SEARCH STUDENT
 
+    /**
+     * Searches for a student by name and displays their information if found.
+     */
     static void searchStudent(Scanner scanner) {
         if (gradeMap.isEmpty()) {
             System.out.println("\nNo students registered yet.");
@@ -188,20 +203,32 @@ public class Main {
 
     // UTILITY METHODS
 
+    /**
+     * Recursively sums all grades in the array starting from index i.
+     */
     static double sumGrades(double[] grades, int i) {
         if (i == grades.length) return 0;
         return grades[i] + sumGrades(grades, i + 1);
     }
 
+    /**
+     * Calculates the average grade from an array of grades.
+     */
     static double calculateAverage(double[] grades) {
         if (grades.length == 0) return 0;
         return sumGrades(grades, 0) / grades.length;
     }
 
+    /**
+     * Returns the pass/fail status based on a grade (Passed if >= 6.0, Failed otherwise).
+     */
     static String getStatus(double grade) {
         return grade >= 6.0 ? "Passed" : "Failed";
     }
 
+    /**
+     * Finds and returns the highest grade in an array of grades.
+     */
     static double highestGrade(double[] grades) {
         double max = grades[0];
         for (int i = 1; i < grades.length; i++) {
@@ -210,6 +237,9 @@ public class Main {
         return max;
     }
 
+    /**
+     * Finds and returns the lowest grade in an array of grades.
+     */
     static double lowestGrade(double[] grades) {
         double min = grades[0];
         for (int i = 1; i < grades.length; i++) {
@@ -218,6 +248,9 @@ public class Main {
         return min;
     }
 
+    /**
+     * Counts the number of students who passed (grade >= 6.0).
+     */
     static int countPassed(double[] grades) {
         int count = 0;
         for (double g : grades) {
@@ -226,6 +259,9 @@ public class Main {
         return count;
     }
 
+    /**
+     * Converts an ArrayList of Doubles to a primitive double array.
+     */
     static double[] toArray(ArrayList<Double> list) {
         double[] arr = new double[list.size()];
         for (int i = 0; i < list.size(); i++) {
